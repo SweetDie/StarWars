@@ -9,7 +9,6 @@ let charStr = "characters";
 let shipsStr = "starships";
 let currentImgUrl;
 let currentUrl;
-let object1;
 let currentLocalRequest;
 let requestCount = 0;
 
@@ -183,28 +182,5 @@ function Clear() {
   let tbody = document.getElementById("tableBody");
   while(tbody.firstChild) {
     tbody.removeChild(tbody.firstChild);
-  }
-}
-
-
-
-
-class Object1 {
-  constructor() {
-    this.Keys = [];
-    this.Values = [];
-    this.Img = null;
-  }
-
-  pushKey(key) {
-    this.Keys.push(key);
-  }
-
-  pushValues(value) {
-    this.Values.push(value);
-  }
-
-  setImg(img) {
-    this.Img = img;
   }
 }
