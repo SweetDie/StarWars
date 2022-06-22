@@ -24,26 +24,26 @@ function Init() {
 
 function GetPeople() {
   Clear();
-  Request(UrlPeople, Print);
   currentUrl = UrlPeople;
   page = 0;
   currentImgUrl = charStr;
+  Request(UrlPeople, Print);
 }
 
 function GetStarship() {
   Clear();
-  Request(UrlStarships, Print);
   currentUrl = UrlStarships;
   page = 0;
   currentImgUrl = shipsStr;
+  Request(UrlStarships, Print);
 }
 
 function GetPlanet() {
   Clear();
-  Request(UrlPlanets, Print);
   currentUrl = UrlPlanets;
   page = 0;
   currentImgUrl  = planetStr;
+  Request(UrlPlanets, Print);
 }
 
 function Request (URL, Callback){
@@ -99,15 +99,15 @@ function UpdateCounter() {
 Next = () => {
   Clear();
   page++;
-  Request(urlNext, Print);
   currentUrl = urlNext;
+  Request(urlNext, Print);
 }
 
 Prev = () => {
   Clear();
   page--;
-  Request(urlPrevious, Print);
   currentUrl = urlPrevious;
+  Request(urlPrevious, Print);
 }
 
 Print = ({results, next, previous}) => {
@@ -131,13 +131,10 @@ Print = ({results, next, previous}) => {
   const thead = document.getElementById("tableHead");
   const tbody = document.getElementById("tableBody");
   const trHead = document.createElement("tr");
-
-  let tmpObject = new Object1();
   
   Object.keys(results[0]).slice(0, 8).forEach((element) => {
     const th = document.createElement("th");
     th.appendChild(document.createTextNode(element));
-    tmpObject.pushKey(element);
     trHead.appendChild(th);
   });
   thead.appendChild(trHead);
@@ -157,7 +154,6 @@ Print = ({results, next, previous}) => {
     img.setAttribute("src", `https://starwars-visualguide.com/assets/img/${currentImgUrl}/${numberItem}.jpg`);
     img.setAttribute("alt", `No image`);
     img.width = 50;
-    tmpObject.setImg(`https://starwars-visualguide.com/assets/img/${currentImgUrl}/${index + 1 + page * 10}.jpg`);
     let tdimg = document.createElement("td");
     tdimg.appendChild(img);
     trBody.appendChild(tdimg);
@@ -165,13 +161,10 @@ Print = ({results, next, previous}) => {
     Object.values(element).slice(0, 8).forEach((element1) => {
       let td = document.createElement("td");
       td.appendChild(document.createTextNode(element1));
-      tmpObject.pushValues(element1);
       trBody.appendChild(td);
     });
     tbody.appendChild(trBody);
   })
-
-  object1 = tmpObject;
 }
 
 function Clear() {
